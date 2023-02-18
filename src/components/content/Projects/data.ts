@@ -1,6 +1,7 @@
 export default [
   {
     companyName: "Fluxon",
+    role: "Pivotal in contributing time critical features to clients. Worked on some trickiest problems in openbracket",
     duration: {
       startedAt: {
         month: "March",
@@ -47,6 +48,8 @@ export default [
             "GCP - Compute",
             "Cloud run",
             "Pubsub",
+            "OT",
+            "CodeMirror 6",
           ],
         },
       },
@@ -55,6 +58,7 @@ export default [
   },
   {
     companyName: "Globant",
+    role: "Part of the core engineering team. I was responsible for building reusable components for the Digital security platform team. I am responsible for finding ways to improve the application’s performance and make code architecture cleaner. I was managing and delegating incoming tasks, bugs, and production incidents for the entire team. ",
     duration: {
       startedAt: {
         month: "September",
@@ -73,7 +77,7 @@ export default [
           texts: [
             "Transitioned 16+ markets of HSBC from the legacy Saas platform to DSP. Identified performance bottlenecks in UI rendering, improving performance 3 times.",
           ],
-          techStack: ["React Native", "expo", "firebase"],
+          techStack: ["Angular2+", "microservices", "AEM", "NodeJS"],
         },
       },
       {
@@ -83,7 +87,7 @@ export default [
           texts: [
             "Enhanced existing functionalities and added 3 online reset options, increasing user engagement by 30%.",
           ],
-          techStack: ["Python", "NextJS", "Docker"],
+          techStack: ["Angular2+", "microservices", "AEM", "NodeJS"],
         },
       },
       {
@@ -94,13 +98,7 @@ export default [
             "Developed and deployed the entire project to production for all modules - devices, password, and username. The initial response to this project was good leading to integration into multiple markets",
             "Resolved 90% of critical production bugs in 3 months.",
           ],
-          techStack: [
-            "NextJS",
-            "Firebase",
-            "GCP - Compute",
-            "Cloud run",
-            "Pubsub",
-          ],
+          techStack: ["Angular2+", "microservices", "AEM", "NodeJS"],
         },
       },
     ],
@@ -108,6 +106,7 @@ export default [
   },
   {
     companyName: "Creyent Arts Pvt ltd",
+    role: "Cofounded a startup and built ‘Rtee’- a platform bringing dance studios and dancers in one place.",
     duration: {
       startedAt: {
         month: "February",
@@ -126,7 +125,13 @@ export default [
         "Designed custom restful design APIs in python to support both mobile app and web app. Integrated Google app engine, Google Cloud SQL, and Cloudinary.",
         "We onboarded 100+ dance studios(in Pune)and 6000+ individual users onto the platform in the first 6 months.",
       ],
-      techStack: ["React Native", "expo", "firebase"],
+      techStack: [
+        "Python",
+        "Google app engine",
+        "firebase",
+        "cloudinary",
+        "Angular7",
+      ],
     },
     position: "Co founder",
   },
@@ -142,6 +147,7 @@ export default [
         year: "2018",
       },
     },
+    role: "As a full-stack developer of the build team, I was responsible for building scripts and UI for the build processes of Commvault.",
     description: [
       {
         projectName: "Build Process",
@@ -150,7 +156,17 @@ export default [
           texts: [
             "Structured several internal systems comprising build and update management applications at Commvault. Added enhancements to the existing system streamlining the continuous integration process, speeding up the build process up to 40%",
           ],
-          techStack: ["React Native", "expo", "firebase"],
+          techStack: ["Python", "ASP.net", "Webforms", "jQuery"],
+        },
+      },
+      {
+        projectName: "Source Approval System",
+        duration: "1.5 years",
+        description: {
+          texts: [
+            "Developed reusable components for UI to help in source repository management and code integration. Wrote scripts for creating diff at runtime using Python and jQuery. This project impacted the full development team present at commvault",
+          ],
+          techStack: ["Python", "ASP.net", "Webforms", "jQuery"],
         },
       },
     ],

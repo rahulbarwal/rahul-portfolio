@@ -19,8 +19,9 @@ type ITenure = {
 export type IPItem = {
   companyName: string;
   duration: ITenure | boolean;
-  description: ICompanyProject[] | IDescription;
   position: string;
+  role: string;
+  description: ICompanyProject[] | IDescription;
 };
 
 const ProjectItem = ({ project }: Props) => {
@@ -46,6 +47,7 @@ const ProjectItem = ({ project }: Props) => {
         <span className="italic">{project.companyName}</span>
       </h1>
       {durationNode}
+      <p>{project.role}</p>
       <CompanyProjectDescription desc={project.description} />
     </section>
   );
