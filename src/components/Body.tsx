@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import Intro from "./content/Intro";
 import Projects from "./content/Projects";
-import { globalStateContext, PageNamesEnum } from "./context/global";
+import { globalStateContext, PageNamesEnum } from "../context/global";
 
 type Props = {};
 

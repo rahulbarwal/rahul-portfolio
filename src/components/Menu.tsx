@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { globalStateContext, PageNamesEnum } from "./context/global";
+import { globalStateContext, PageNamesEnum } from "../context/global";
 
 type Props = {};
 
