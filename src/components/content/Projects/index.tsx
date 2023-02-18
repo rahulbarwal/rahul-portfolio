@@ -27,13 +27,7 @@ const Projects = (props: Props) => {
   return (
     <>
       <section className="flex gap-2 items-end mb-4">
-        {currProjectIndex !== 0 && (
-          <button onClick={() => dispatch({ type: "dec" })}>Prev</button>
-        )}
         <ProjectItem project={projects[currProjectIndex]} />
-        {currProjectIndex !== projects.length - 1 && (
-          <button onClick={() => dispatch({ type: "inc" })}>Next</button>
-        )}
       </section>
 
       <ProjectNavigator

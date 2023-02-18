@@ -48,7 +48,7 @@ const Description = ({ desc }: { desc: IDescription }) => {
       ))}
       <article className="flex gap-2 mt-2">
         {desc.techStack.map((tech) => (
-          <span className=" bg-gray-500 rounded-2xl py-1 px-2 break-keep">
+          <span className="text-xs bg-gray-500 rounded-2xl py-1 px-2 break-keep">
             {tech}
           </span>
         ))}
