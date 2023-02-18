@@ -13,6 +13,7 @@ const ProjectNavigator = (props: Props) => {
         {Array.from(Array(props.total).keys()).map(
           (val: number, index: number) => (
             <BlinkDot
+              key={index}
               isActive={index === props.currentIndex}
               onClickHandler={() => props.changeCurrentIndex(index)}
             />
