@@ -26,7 +26,7 @@ const Projects = (props: Props) => {
   );
   return (
     <>
-      <section className="flex gap-2 items-end mb-20 max-w-4xl md:max-w-full sm:max-w-full">
+      <section className="flex gap-2 items-end mb-20 lg:max-w-3xl xl:max-w-3xl max-w-full">
         <ProjectItem project={projects[currProjectIndex]} />
       </section>
 
