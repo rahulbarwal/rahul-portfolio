@@ -30,7 +30,9 @@ const CompanyProjectDescription = ({ desc }: Props) => {
           ))}
         </section>
       ) : (
-        <section>My role</section>
+        <section>
+          <Description desc={desc} />
+        </section>
       )}
     </>
   );
