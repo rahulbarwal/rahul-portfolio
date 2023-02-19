@@ -1,4 +1,5 @@
 import React from "react";
+import Pill from "../../shared/pills";
 
 export type SideProjectDetails = {
   name: string;
@@ -26,10 +27,10 @@ const Item = (props: Props) => {
             <h1 className="text-white text-3xl title-font font-medium mb-1">
               {props.project.name}
             </h1>
-            <div className="flex mb-4">
-              <span className="flex border-l-2 border-gray-800 text-gray-500 space-x-2">
-                <a>{GithubIcon}</a>
-              </span>
+            <div className="flex mb-4 gap-2 text-white">
+              {props.project.tech.map((tech, index) => (
+                <Pill text={tech} key={index} />
+              ))}
             </div>
             <p className="leading-relaxed">{props.project.description}</p>
             <div className="flex mt-4">
@@ -38,6 +39,9 @@ const Item = (props: Props) => {
               </button>
               <button className="rounded-full w-10 h-10 bg-gray-800 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                 {HeartIcon}
+              </button>
+              <button className="rounded-full w-10 h-10 bg-gray-800 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                {GithubIcon}
               </button>
             </div>
           </div>

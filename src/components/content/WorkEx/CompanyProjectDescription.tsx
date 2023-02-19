@@ -1,4 +1,5 @@
 import React from "react";
+import Pill from "../../shared/pills";
 
 type Props = {
   desc: ICompanyProject[] | IDescription;
@@ -50,12 +51,7 @@ const Description = ({ desc }: { desc: IDescription }) => {
       ))}
       <article className="flex gap-2 mt-2">
         {desc.techStack.map((tech, index) => (
-          <span
-            key={index}
-            className="text-xs bg-gray-500 rounded-2xl py-1 px-2 break-keep"
-          >
-            {tech}
-          </span>
+          <Pill text={tech} key={index} />
         ))}
       </article>
     </>
