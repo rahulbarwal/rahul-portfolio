@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Intro from "./content/Intro";
-import Projects from "./content/Projects";
+import Projects from "./content/WorkEx";
 import { globalStateContext, PageNamesEnum } from "../context/global";
 import ContactLink from "./content/ContactLink";
 
