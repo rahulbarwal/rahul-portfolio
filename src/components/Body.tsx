@@ -3,6 +3,7 @@ import Intro from "./content/Intro";
 import Projects from "./content/WorkEx";
 import { globalStateContext, PageNamesEnum } from "../context/global";
 import ContactLink from "./content/ContactLink";
+import SideProjects from "./content/SideProjects";
 
 type Props = {};
 
@@ -17,7 +18,7 @@ const Body = (props: Props) => {
       bodyContent = <Projects />;
       break;
     case PageNamesEnum.SIDE_PROJECTS:
-      bodyContent = <Projects />;
+      bodyContent = <SideProjects />;
       break;
     case PageNamesEnum.CONTACT:
       bodyContent = <ContactLink />;
