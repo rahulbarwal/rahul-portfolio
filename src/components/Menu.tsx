@@ -7,7 +7,7 @@ const Menu = (props: Props) => {
   const { currentPageIndex, setCurrentPageIndex } =
     useContext(globalStateContext);
   const itemClass = (isCurrent: boolean) =>
-    `cursor-pointer ${isCurrent ? "underline" : ""}`;
+    `cursor-pointer ${isCurrent ? "underline text-white text-xl" : "text-gray-500"}`;
   return (
     <ul className="w-40">
       <li
