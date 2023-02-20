@@ -7,7 +7,7 @@ import {
   SnapshotOptions,
 } from "firebase/firestore";
 import { SideProjectDetails } from "../types/sideProj";
-import { app } from "./init";
+import { firestore } from "./init";
 import { RootCollections } from "./rootCollections";
 
 const workExConverter = {
@@ -23,8 +23,7 @@ const workExConverter = {
   },
 };
 
-const firestore = getFirestore(app);
-export const getSideProjToDB = async (): Promise<SideProjectDetails[]> => {
+export const getSideProjFromDB = async (): Promise<SideProjectDetails[]> => {
   const sideProjRef = collection(
     firestore,
     RootCollections.SIDE_PROJECTS

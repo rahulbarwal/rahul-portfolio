@@ -1,16 +1,13 @@
 import {
   collection,
-  doc,
-  getFirestore,
-  setDoc,
-  getDocs,
   DocumentData,
+  getDocs,
+  getFirestore,
   QueryDocumentSnapshot,
   SnapshotOptions,
 } from "firebase/firestore";
-import { app } from "./init";
-import sideData from "../components/content/SideProjects/data";
 import { IPItem } from "../types/workEx";
+import { firestore } from "./init";
 import { RootCollections } from "./rootCollections";
 
 const workExConverter = {
@@ -26,11 +23,11 @@ const workExConverter = {
   },
 };
 
-const firestore = getFirestore(app);
-export const getWorkExToDB = async (): Promise<IPItem[]> => {
-  const workExRef = collection(firestore, RootCollections.WORK_EX).withConverter(
-    workExConverter
-  );
+export const getWorkExFromDB = async (): Promise<IPItem[]> => {
+  const workExRef = collection(
+    firestore,
+    RootCollections.WORK_EX
+  ).withConverter(workExConverter);
   const data = await getDocs(workExRef);
   return data.docs.map((data) => data.data());
 };
