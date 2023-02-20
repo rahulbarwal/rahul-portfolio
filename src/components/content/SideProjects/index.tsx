@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { globalStateContext } from "../../../context/global";
 import { getSideProjFromDB } from "../../../firebase/sideProj";
-import { SideProjectDetails } from "../../../types/sideProj";
 
 import Item from "./Item";
 
