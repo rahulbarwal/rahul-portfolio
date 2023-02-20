@@ -1,11 +1,7 @@
 import React from "react";
+import { SideProjectDetails } from "../../../types/sideProj";
 import Pill from "../../shared/pills";
 
-export type SideProjectDetails = {
-  name: string;
-  description: string;
-  tech: string[];
-};
 type Props = {
   project: SideProjectDetails;
 };

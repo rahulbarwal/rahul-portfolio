@@ -1,27 +1,8 @@
-import React from "react";
-import CompanyProjectDescription, {
-  ICompanyProject,
-  IDescription,
-} from "./CompanyProjectDescription";
+import { IPItem } from "../../../types/workEx";
+import CompanyProjectDescription from "./CompanyProjectDescription";
 
 type Props = {
   project: IPItem;
-};
-
-type IDuration = {
-  month: string;
-  year: string;
-};
-type ITenure = {
-  startedAt: IDuration;
-  endedAt: IDuration;
-};
-export type IPItem = {
-  companyName: string;
-  duration: ITenure | boolean;
-  position: string;
-  role: string;
-  description: ICompanyProject[] | IDescription;
 };
 
 const ProjectItem = ({ project }: Props) => {

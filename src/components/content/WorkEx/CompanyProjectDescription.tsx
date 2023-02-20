@@ -1,18 +1,8 @@
-import React from "react";
+import { ICompanyProject, IDescription } from "../../../types/workEx";
 import Pill from "../../shared/pills";
 
 type Props = {
   desc: ICompanyProject[] | IDescription;
-};
-
-export type IDescription = {
-  texts: string[];
-  techStack: string[];
-};
-export type ICompanyProject = {
-  projectName: string;
-  duration: string;
-  description: IDescription;
 };
 
 const CompanyProjectDescription = ({ desc }: Props) => {

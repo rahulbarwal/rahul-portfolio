@@ -1,5 +1,5 @@
-import { GlobalState, GlobalStateProvider } from "./context/global";
 import Layout from "./components/Layout";
+import { GlobalStateProvider } from "./context/global";
 
 function App() {
   return (

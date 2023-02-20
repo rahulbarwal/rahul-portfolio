@@ -1,7 +1,8 @@
 import React, { useReducer, useState } from "react";
-import ProjectItem, { IPItem } from "./ProjectItem";
+import ProjectItem from "./ProjectItem";
 import data from "./data";
 import ProjectNavigator from "./navigator/ProjectNavigator";
+import { IPItem } from "../../../types/workEx";
 type Props = {};
 
 const Projects = (props: Props) => {

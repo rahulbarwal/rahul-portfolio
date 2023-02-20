@@ -1,6 +1,5 @@
-import React from "react";
-import Item from "./Item";
 import projects from "./data";
+import Item from "./Item";
 
 type Props = {};
 
