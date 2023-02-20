@@ -1,10 +1,9 @@
 import {
   collection,
   DocumentData,
-  getDocs,
-  getFirestore,
-  QueryDocumentSnapshot,
-  SnapshotOptions,
+  getDocs, orderBy,
+  query, QueryDocumentSnapshot,
+  SnapshotOptions
 } from "firebase/firestore";
 import { IPItem } from "../types/workEx";
 import { firestore } from "./init";
@@ -24,10 +23,12 @@ const workExConverter = {
 };
 
 export const getWorkExFromDB = async (): Promise<IPItem[]> => {
-  const workExRef = collection(
-    firestore,
-    RootCollections.WORK_EX
-  ).withConverter(workExConverter);
-  const data = await getDocs(workExRef);
+  const q = query(
+    collection(firestore, RootCollections.WORK_EX).withConverter(
+      workExConverter
+    ),
+    orderBy("displayPos")
+  );
+  const data = await getDocs(q);
   return data.docs.map((data) => data.data());
 };

@@ -3,6 +3,8 @@ import {
   DocumentData,
   getDocs,
   getFirestore,
+  orderBy,
+  query,
   QueryDocumentSnapshot,
   SnapshotOptions,
 } from "firebase/firestore";
@@ -24,10 +26,12 @@ const workExConverter = {
 };
 
 export const getSideProjFromDB = async (): Promise<SideProjectDetails[]> => {
-  const sideProjRef = collection(
-    firestore,
-    RootCollections.SIDE_PROJECTS
-  ).withConverter(workExConverter);
-  const data = await getDocs(sideProjRef);
+  const q = query(
+    collection(firestore, RootCollections.SIDE_PROJECTS).withConverter(
+      workExConverter
+    ),
+    orderBy("displayPos")
+  );
+  const data = await getDocs(q);
   return data.docs.map((data) => data.data());
 };
