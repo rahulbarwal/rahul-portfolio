@@ -13,7 +13,7 @@ const CompanyProjectDescription = ({ desc }: Props) => {
           {desc.map((prj, index) => (
             <article key={index} className="mt-4">
               <p>
-                🚀 {prj.projectName}{" "}
+                {prj.projectName}{" "}
                 <span className=" text-slate-500">({prj.duration})</span>
               </p>
               <Description desc={prj.description} />
