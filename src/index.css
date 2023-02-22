@@ -8,3 +8,6 @@
   text-transform: lowercase;
   font-family: Nunito;
 }
+button {
+  text-transform: lowercase;
+}

@@ -8,6 +8,7 @@ const ContactForm = (props: Props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [notification, setNotification] = useState("");
 
   const validate = (): boolean => {
     if (!email || !name || !message) return false;
@@ -17,10 +18,15 @@ const ContactForm = (props: Props) => {
 
   const handleOnSubmit = async () => {
     if (!validate()) return;
-    await writeToDB({ name, email, message });
-    setEmail("");
-    setName("");
-    setMessage("");
+    try {
+      await writeToDB({ name, email, message });
+      setEmail("");
+      setName("");
+      setMessage("");
+      setNotification("Thanks for your message. I'll get in touch soon.");
+    } catch (error) {
+      setNotification("Something bad happened. Please come back later");
+    }
   };
 
   return (
@@ -63,12 +69,13 @@ const ContactForm = (props: Props) => {
           ></textarea>
         </div>
       </div>
+      <p className="w-full text-center text-white">{notification}</p>
       <div className="p-2 w-full">
         <button
           className="flex mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg"
           onClick={handleOnSubmit}
         >
-          Button
+          Submit
         </button>
       </div>
       <div className="p-2 w-full pt-8 mt-8 border-t border-gray-800 text-center">
