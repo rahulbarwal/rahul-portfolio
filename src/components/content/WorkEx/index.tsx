@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useReducer, useState } from "react";
-import ProjectItem from "./ProjectItem";
-import data from "./data";
-import ProjectNavigator from "./navigator/ProjectNavigator";
-import { IPItem } from "../../../types/workEx";
+import { useContext, useEffect, useReducer, useState } from "react";
 import { globalStateContext } from "../../../context/global";
 import { getWorkExFromDB } from "../../../firebase/workEx";
+import ProjectNavigator from "../../shared/navigator/ProjectNavigator";
+import LoaderSkeleton from "./LoaderSkeleton";
+import ProjectItem from "./ProjectItem";
 type Props = {};
 
 const Projects = (props: Props) => {
   const { workExData, setWorkExData } = useContext(globalStateContext);
+  const [currProjectIndex, setcurrProjectIndex] = useState(0);
   useEffect(() => {
     if (workExData) return;
     const getdata = async () => {
@@ -17,26 +17,8 @@ const Projects = (props: Props) => {
     };
     getdata();
   }, []);
-  const [currProjectIndex, dispatch] = useReducer(
-    (
-      state: number,
-      action: { type: "inc" | "dec" } | { type: "set"; payload: number }
-    ) => {
-      if (action.type === "inc") {
-        return state + 1;
-      }
-      if (action.type === "dec") {
-        return state - 1;
-      }
-      if (action.type === "set") {
-        return action.payload;
-      }
-      throw Error("Unknown action.");
-    },
-    0
-  );
   if (!workExData) {
-    return <span></span>;
+    return <LoaderSkeleton />;
   }
   return (
     <>
@@ -46,10 +28,7 @@ const Projects = (props: Props) => {
 
       <ProjectNavigator
         total={workExData.length}
-        currentIndex={currProjectIndex}
-        changeCurrentIndex={(val: number) =>
-          dispatch({ type: "set", payload: val })
-        }
+        changeCurrentIndex={(val: number) => setcurrProjectIndex(val)}
       />
     </>
   );

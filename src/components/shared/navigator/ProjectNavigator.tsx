@@ -1,12 +1,18 @@
+import { useState } from "react";
 import BlinkDot from "./BlinkDot";
 
 type Props = {
   total: number;
-  currentIndex: number;
   changeCurrentIndex: (val: number) => void;
 };
 
 const ProjectNavigator = (props: Props) => {
+  const [currIndex, setcurrIndex] = useState(0);
+  const changeIndex = (index: number) => {
+    setcurrIndex(index);
+    props.changeCurrentIndex(index);
+  };
+
   return (
     <div className="flex items-center justify-center w-full h-px">
       <div className=" w-full h-1/2 bg-white flex justify-evenly items-center">
@@ -14,8 +20,8 @@ const ProjectNavigator = (props: Props) => {
           (val: number, index: number) => (
             <BlinkDot
               key={index}
-              isActive={index === props.currentIndex}
-              onClickHandler={() => props.changeCurrentIndex(index)}
+              isActive={index === currIndex}
+              onClickHandler={() => changeIndex(index)}
             />
           )
         )}
