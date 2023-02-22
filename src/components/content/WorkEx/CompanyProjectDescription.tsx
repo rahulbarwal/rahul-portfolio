@@ -35,7 +35,7 @@ const Description = ({ desc }: { desc: IDescription }) => {
   return (
     <>
       {desc.texts.map((t, index) => (
-        <p key={index} className=" list-item">
+        <p key={index} className=" list-item font-extralight">
           {t}
         </p>
       ))}
