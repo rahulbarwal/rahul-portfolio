@@ -1,13 +1,9 @@
 import {
-  addDoc,
-  collection,
-  DocumentData,
-  getDocs,
-  orderBy,
-  query,
+    addDoc,
+    collection,
+    DocumentData, serverTimestamp
 } from "firebase/firestore";
 import { MessageTemplate } from "../types/talkWithMe";
-import { IPItem } from "../types/workEx";
 import { firestore } from "./base/init";
 import { RootCollections } from "./base/rootCollections";
 
@@ -19,5 +15,5 @@ const workExConverter = {
 
 export const writeToDB = async (obj: MessageTemplate): Promise<void> => {
   const messageRef = collection(firestore, RootCollections.TALK_WITH_ME);
-  await addDoc(messageRef, obj);
+  await addDoc(messageRef, { ...obj, createdAt: serverTimestamp() });
 };
