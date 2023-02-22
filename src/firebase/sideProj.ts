@@ -2,14 +2,14 @@ import {
   collection,
   DocumentData,
   getDocs,
-  getFirestore,
   orderBy,
   query,
   QueryDocumentSnapshot,
   SnapshotOptions,
 } from "firebase/firestore";
+import { ref, getDownloadURL } from "firebase/storage";
 import { SideProjectDetails } from "../types/sideProj";
-import { firestore } from "./init";
+import { firestore, storage } from "./init";
 import { RootCollections } from "./rootCollections";
 
 const workExConverter = {
@@ -20,7 +20,9 @@ const workExConverter = {
     snapshot: QueryDocumentSnapshot,
     options: SnapshotOptions
   ): SideProjectDetails {
-    const data = snapshot.data(options)!;
+    const data: SideProjectDetails = snapshot.data(
+      options
+    )! as SideProjectDetails;
     return data as SideProjectDetails;
   },
 };
@@ -33,5 +35,16 @@ export const getSideProjFromDB = async (): Promise<SideProjectDetails[]> => {
     orderBy("displayPos")
   );
   const data = await getDocs(q);
-  return data.docs.map((data) => data.data());
+  return await Promise.all(
+    data.docs.map(async (data) => {
+      const projInfo: SideProjectDetails = data.data();
+      projInfo.image = await getDownloadURL(
+        ref(
+          storage,
+          `/public/${RootCollections.SIDE_PROJECTS}/${projInfo.image}`
+        )
+      );
+      return projInfo;
+    })
+  );
 };
