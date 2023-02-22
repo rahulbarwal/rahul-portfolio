@@ -1,4 +1,4 @@
-import { Suspense, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { globalStateContext } from "../../../context/global";
 import { getSideProjFromDB } from "../../../firebase/sideProj";
 import ProjectNavigator from "../../shared/navigator/ProjectNavigator";
@@ -25,7 +25,7 @@ const SideProjects = (props: Props) => {
   }
   return (
     <>
-      {projects && projects.map((p, index) => <Item key={index} project={p} />)}
+      <Item project={projects[currProjectIndex]} />
       <ProjectNavigator
         total={projects.length}
         changeCurrentIndex={(val: number) => setcurrProjectIndex(val)}

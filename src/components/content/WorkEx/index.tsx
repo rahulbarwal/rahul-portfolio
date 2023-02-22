@@ -1,4 +1,4 @@
-import { useContext, useEffect, useReducer, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { globalStateContext } from "../../../context/global";
 import { getWorkExFromDB } from "../../../firebase/workEx";
 import ProjectNavigator from "../../shared/navigator/ProjectNavigator";

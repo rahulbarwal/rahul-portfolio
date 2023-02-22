@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { SideProjectDetails } from "../../../types/sideProj";
 import Pill from "../../shared/pills";
 
