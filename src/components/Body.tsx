@@ -2,7 +2,7 @@ import { useContext } from "react";
 import Intro from "./content/Intro";
 import Projects from "./content/WorkEx";
 import { globalStateContext, PageNamesEnum } from "../context/global";
-import ContactLink from "./content/ContactLink";
+import ContactMe from "./content/ContactMe";
 import SideProjects from "./content/SideProjects";
 
 type Props = {};
@@ -21,7 +21,7 @@ const Body = (props: Props) => {
       bodyContent = <SideProjects />;
       break;
     case PageNamesEnum.CONTACT:
-      bodyContent = <ContactLink />;
+      bodyContent = <ContactMe />;
       break;
     default:
       bodyContent = <Body />;

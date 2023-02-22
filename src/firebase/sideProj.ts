@@ -9,8 +9,8 @@ import {
 } from "firebase/firestore";
 import { ref, getDownloadURL } from "firebase/storage";
 import { SideProjectDetails } from "../types/sideProj";
-import { firestore, storage } from "./init";
-import { RootCollections } from "./rootCollections";
+import { firestore, storage } from "./base/init";
+import { RootCollections } from "./base/rootCollections";
 
 const workExConverter = {
   toFirestore(data: SideProjectDetails): DocumentData {

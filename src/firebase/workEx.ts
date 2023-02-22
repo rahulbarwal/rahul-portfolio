@@ -6,8 +6,8 @@ import {
   SnapshotOptions
 } from "firebase/firestore";
 import { IPItem } from "../types/workEx";
-import { firestore } from "./init";
-import { RootCollections } from "./rootCollections";
+import { firestore } from "./base/init";
+import { RootCollections } from "./base/rootCollections";
 
 const workExConverter = {
   toFirestore(data: IPItem): DocumentData {
