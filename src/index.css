@@ -8,6 +8,9 @@
   text-transform: lowercase;
   font-family: Nunito;
 }
+body {
+  background: rgb(31, 41, 55);
+}
 button {
   text-transform: lowercase;
 }

@@ -1,4 +1,4 @@
-import Layout from "./components/Layout";
+import Layout from "./components/Layout/Layout";
 import { GlobalStateProvider } from "./context/global";
 
 function App() {
