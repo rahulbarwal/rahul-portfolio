@@ -1,34 +1,24 @@
-import { useContext } from "react";
-import Intro from "./content/Intro";
-import Projects from "./content/WorkEx";
-import { globalStateContext, PageNamesEnum } from "../context/global";
+import { Route, Routes } from "react-router-dom";
+import { RouteNames } from "../routes";
 import ContactMe from "./content/ContactMe";
+import Intro from "./content/Intro";
 import SideProjects from "./content/SideProjects";
+import Projects from "./content/WorkEx";
 
 type Props = {};
 
 const Body = (props: Props) => {
-  const { currentPageIndex } = useContext(globalStateContext);
-  let bodyContent;
-  switch (currentPageIndex) {
-    case PageNamesEnum.INTRO:
-      bodyContent = <Intro />;
-      break;
-    case PageNamesEnum.WORK_EXP:
-      bodyContent = <Projects />;
-      break;
-    case PageNamesEnum.SIDE_PROJECTS:
-      bodyContent = <SideProjects />;
-      break;
-    case PageNamesEnum.CONTACT:
-      bodyContent = <ContactMe />;
-      break;
-    default:
-      bodyContent = <Body />;
-  }
   return (
     <article className="w-full flex flex-col justify-end items-end">
-      {bodyContent}
+      <Routes>
+        <Route path={RouteNames.HOME} element={<Intro />}></Route>
+        <Route path={RouteNames.WORK_EX} element={<Projects />}></Route>
+        <Route
+          path={RouteNames.SIDE_PROJECTS}
+          element={<SideProjects />}
+        ></Route>
+        <Route path={RouteNames.CONTACT_ME} element={<ContactMe />}></Route>
+      </Routes>
     </article>
   );
 };

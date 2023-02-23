@@ -1,38 +1,28 @@
-import React, { useContext } from "react";
-import { globalStateContext, PageNamesEnum } from "../context/global";
+import { Link, useLocation } from "react-router-dom";
+import { RouteNames } from "../routes";
 
 type Props = {};
 
 const Menu = (props: Props) => {
-  const { currentPageIndex, setCurrentPageIndex } =
-    useContext(globalStateContext);
   const itemClass = (isCurrent: boolean) =>
-    `cursor-pointer ${isCurrent ? "underline text-white text-xl" : "text-gray-500"}`;
+    `cursor-pointer ${
+      isCurrent ? "underline text-white text-xl" : "text-gray-500"
+    }`;
+  const route = useLocation();
+
   return (
     <ul className="w-40">
-      <li
-        className={itemClass(currentPageIndex === PageNamesEnum.INTRO)}
-        onClick={() => setCurrentPageIndex(0)}
-      >
-        intro
+      <li className={itemClass(route.pathname === RouteNames.HOME)}>
+        <Link to={RouteNames.HOME}>intro</Link>
       </li>
-      <li
-        className={itemClass(currentPageIndex === PageNamesEnum.WORK_EXP)}
-        onClick={() => setCurrentPageIndex(1)}
-      >
-        work exp
+      <li className={itemClass(route.pathname === RouteNames.WORK_EX)}>
+        <Link to={RouteNames.WORK_EX}>work exp</Link>
       </li>
-      <li
-        className={itemClass(currentPageIndex === PageNamesEnum.SIDE_PROJECTS)}
-        onClick={() => setCurrentPageIndex(2)}
-      >
-        side projects
+      <li className={itemClass(route.pathname === RouteNames.SIDE_PROJECTS)}>
+        <Link to={RouteNames.SIDE_PROJECTS}> side projects</Link>
       </li>
-      <li
-        className={itemClass(currentPageIndex === PageNamesEnum.CONTACT)}
-        onClick={() => setCurrentPageIndex(3)}
-      >
-        contact
+      <li className={itemClass(route.pathname === RouteNames.CONTACT_ME)}>
+        <Link to={RouteNames.CONTACT_ME}>contact</Link>
       </li>
     </ul>
   );
